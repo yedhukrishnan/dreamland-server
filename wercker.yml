@@ -32,4 +32,4 @@ build:
       code: bundle exec rake db:migrate RAILS_ENV=test
     - script:
       name: rspec
-      code: bundle exec rspec RAILS_ENV=test
+      code: bundle exec rspec
