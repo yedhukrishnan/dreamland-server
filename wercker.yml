@@ -39,6 +39,4 @@ deploy:
       key: $HEROKU_KEY
       user: $HEROKU_USER
       app-name: $HEROKU_APP_NAME
-    - script:
-      name: migrate database
-      code: heroku run rake db:migrate --app $HEROKU_APP_NAME
+      run: rake db:migrate
