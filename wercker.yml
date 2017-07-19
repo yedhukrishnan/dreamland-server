@@ -14,9 +14,10 @@ box: ruby
 # http://devcenter.wercker.com/docs/services/mongodb.html
 services:
   - id: postgres
-  - POSTGRES_PASSWORD: $APP_POSTGRES_PASSWORD
-  - POSTGRES_USER: $APP_POSTGRES_U
-  - POSTGRES_DB: $APP_POSTGRES_DB
+    env:
+      - POSTGRES_PASSWORD: $APP_POSTGRES_PASSWORD
+      - POSTGRES_USER: $APP_POSTGRES_U
+      - POSTGRES_DB: $APP_POSTGRES_DB
 
 # This is the build pipeline. Pipelines are the core of wercker
 # Read more about pipelines on our dev center
