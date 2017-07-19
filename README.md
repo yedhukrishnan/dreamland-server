@@ -1,24 +1,5 @@
-# README
+[![wercker status](https://app.wercker.com/status/bd014b57dd8fb2dcbb210c28d34e816e/s/master "wercker status")](https://app.wercker.com/project/byKey/bd014b57dd8fb2dcbb210c28d34e816e)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# dreamland-server
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Backend server for Dreamland app.
