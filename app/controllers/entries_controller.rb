@@ -6,7 +6,7 @@ class EntriesController < ApplicationController
     @entry.assign_attributes(entry_params)
     @entry.user = current_user
     if @entry.save
-      render nothing: true, status: :created
+      render json: {}, status: :created
     else
       render json: { errors: @entry.errors.full_messages }, status: :unprocessable_entity
     end
