@@ -10,14 +10,24 @@ RSpec.describe EntriesController, type: :controller do
     context "for an authenticated user" do
       describe "when all fields are present" do
         before (:example) do
-          @entry_params = {
-            uuid: 'abcd2344',
-            text: 'Today is a good day',
-            address: 'UK 1234',
-            date: Time.now,
-            latitude: 123.34,
-            longitude: 124.23
-          }
+          @entry_params = [
+            {
+              uuid: 'abcd2344',
+              text: 'Today is a good day',
+              address: 'UK 1234',
+              date: Time.now,
+              latitude: 123.34,
+              longitude: 124.23
+            },
+            {
+              uuid: 'abcd2355',
+              text: 'Today is a good day',
+              address: 'UK 1234',
+              date: Time.now - 1.hour,
+              latitude: 123.34,
+              longitude: 124.23
+            }
+          ]
         end
 
         it "creates an entry for the user" do
@@ -29,11 +39,11 @@ RSpec.describe EntriesController, type: :controller do
 
       describe "when some fields are missing" do
         before (:example) do
-          @entry_params = {
+          @entry_params = [{
             uuid: 'abcd2344',
             text: 'Today is a good day',
             date: Time.now,
-          }
+          }]
         end
 
         it "does not create an entry for the user" do
