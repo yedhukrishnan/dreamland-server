@@ -41,8 +41,6 @@ RSpec.describe EntriesController, type: :controller do
         before (:example) do
           @entry_params = [{
             uuid: 'abcd2344',
-            text: 'Today is a good day',
-            date: Time.now,
           }]
         end
 
