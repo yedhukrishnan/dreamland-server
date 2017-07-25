@@ -59,4 +59,19 @@ RSpec.describe EntriesController, type: :controller do
       end
     end
   end
+
+  describe "GET #index" do
+    before(:example) do
+      Entry.create!(uuid: '123', text: 'hello, world', date: Time.now - 3.hours, user: @user)
+      Entry.create!(uuid: '456', text: 'avada kedavra', date: Time.now - 2.hours, user: @user)
+      Entry.create!(uuid: '789', text: 'valar morghulis' , date: Time.now - 1.hour, user: @user)
+    end
+
+    it "gets the entries for current user" do
+      request.env['HTTP_AUTHORIZATION'] = "Token token=#{@user.auth_token}"
+      get :index
+      uuids = JSON.parse(response.body).map { |e| e['uuid'] }
+      expect(uuids).to eq(['123', '456', '789'])
+    end
+  end
 end

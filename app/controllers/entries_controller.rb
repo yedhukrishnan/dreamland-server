@@ -21,6 +21,8 @@ class EntriesController < ApplicationController
   end
 
   def index
+    @entries = Entry.where(user: current_user)
+    render json: @entries
   end
 
   private
