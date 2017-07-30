@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.where(user: current_user)
+    @entries = Entry.where(user: current_user).order('date desc')
     render json: { entries: @entries }
   end
 

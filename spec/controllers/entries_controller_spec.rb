@@ -67,11 +67,11 @@ RSpec.describe EntriesController, type: :controller do
       Entry.create!(uuid: '789', text: 'valar morghulis' , date: Time.now - 1.hour, user: @user)
     end
 
-    it "gets the entries for current user" do
+    it "gets the entries for current user with newest first" do
       request.env['HTTP_AUTHORIZATION'] = "Token token=#{@user.auth_token}"
       get :index
-      uuids = JSON.parse(response.body).map { |e| e['uuid'] }
-      expect(uuids).to eq(['123', '456', '789'])
+      uuids = JSON.parse(response.body)['entries'].map { |e| e['uuid'] }
+      expect(uuids).to eq(['789', '456', '123'])
     end
   end
 end
