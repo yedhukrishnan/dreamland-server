@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.where(user: current_user)
-    render json: @entries
+    render json: { entries: @entries }
   end
 
   private

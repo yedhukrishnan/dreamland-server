@@ -24,6 +24,5 @@ class UsersController < ApplicationController
       validator = GoogleIDToken::Validator.new(expiry: 1800)
       return validator.check(token, audience)
     end
-    false
   end
 end
